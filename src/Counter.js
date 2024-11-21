@@ -38,10 +38,23 @@ class Counter extends Component {
 
     increment = () => {
         // Không nên cập nhật state trực tiếp, điều này sẽ không cập nhật lại giao diện
+        // this.setState((state) => {
+        //     return {count: state.count + 1}
+        // });
         this.setState((state) => {
             return {count: state.count + 1}
-        });
+        }); // 0 + 1
+        this.setState((state) => {
+            return {count: state.count + 1}
+        }); // 1 + 1
+        this.setState((state) => {
+            return {count: state.count + 1}
+        }); // 2 + 1
     }
+    
+
+    // () => {}
+    // (parameter) => {}
 
     handleClick = (event) => {
         event.preventDefault();
@@ -59,6 +72,10 @@ class Counter extends Component {
 
     handleChange = (event) => {
         this.setState({email: event.target.value});
+    }
+
+    componentWillUnmount() {
+        console.log('componentWillUnmount được gọi khi Counter component bị xóa khỏi DOM!');
     }
 
     render() {
